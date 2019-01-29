@@ -1,0 +1,23 @@
+service: update_expense # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-west-2
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+package:
+#  include:
+#    - include-me.js
+  exclude:
+    - .git/**
+    - connection.example.json
+
+functions:
+  update_expense:
+    handler: index.handler
